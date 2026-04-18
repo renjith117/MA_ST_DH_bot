@@ -25,10 +25,9 @@ def run_health_server():
 API_KEY      = os.environ["KITE_API_KEY"]
 ACCESS_TOKEN = os.environ["KITE_ACCESS_TOKEN"]
 TELEGRAM_TOKEN     = os.environ["TELEGRAM_TOKEN"]
-CHAT_ID      = os.environ["TELEGRAM_CHAT_ID"]
+TELEGRAM_CHAT_ID      = os.environ["TELEGRAM_CHAT_ID"]
 
-kite = KiteConnect(api_key=API_KEY)
-kite.set_access_token(ACCESS_TOKEN)
+
 
 #Watchlist: list of (exchange, tradingsymbol) tuples
 WATCHLIST = [
