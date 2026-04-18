@@ -7,10 +7,25 @@ import pandas_ta as ta
 from datetime import datetime, timedelta
 from kiteconnect import KiteConnect
 
+app = Flask(__name__)
+
+@app.route("/")
+def health():
+    return "OK", 200
+ 
+def run_health_server():
+    port = int(os.environ.get("PORT", 8000))
+    app.run(host="0.0.0.0", port=port)
 # ─────────────────────────────────────────────
 #  CONFIGURATION  (edit before running)
 # ─────────────────────────────────────────────
+API_KEY      = os.environ["KITE_API_KEY"]
+ACCESS_TOKEN = os.environ["KITE_ACCESS_TOKEN"]
+TELEGRAM_TOKEN     = os.environ["TELEGRAM_TOKEN"]
+CHAT_ID      = os.environ["TELEGRAM_CHAT_ID"]
 
+kite = KiteConnect(api_key=API_KEY)
+kite.set_access_token(ACCESS_TOKEN)
 
 #Watchlist: list of (exchange, tradingsymbol) tuples
 WATCHLIST = [
