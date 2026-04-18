@@ -7,6 +7,7 @@ import pandas as pd
 
 import pandas_ta as ta
 from datetime import datetime, timedelta
+import threading
 from flask import Flask
 from kiteconnect import KiteConnect
 
@@ -310,6 +311,8 @@ def scheduled_scan():
     scan_all()
 
 if __name__ == "__main__":
+    t = threading.Thread(target=run_health_server, daemon=True)
+    t.start()
     log.info("SuperTrend + EMA Crossover Alert Bot started")
     send_telegram(
         "🤖 <b>Alert Bot Started</b>\n"
