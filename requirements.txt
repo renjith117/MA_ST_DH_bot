@@ -1,5 +1,8 @@
-kiteconnect>=4.2.0
-pandas>=2.0.0
+kiteconnect==5.0.1
 pandas_ta>=0.3.14b
-requests>=2.31.0
-schedule>=1.2.0
+requests==2.31.0
+schedule==1.2.1
+pytz==2024.1
+pandas
+numpy
+flask
