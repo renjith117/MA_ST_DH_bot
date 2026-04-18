@@ -1,6 +1,6 @@
 kiteconnect>=4.2.0
 pandas>=2.0.0
-pandas_ta==0.3.14b
+git+https://github.com/twopirllc/pandas-ta.git@development#egg=pandas_ta
 numba==0.59.1
 numpy>=1.26.0,<2.0.0
 requests>=2.31.0
