@@ -1,5 +1,7 @@
 kiteconnect>=4.2.0
 pandas>=2.0.0
-pandas_ta>=0.3.14b
+pandas_ta==0.3.14b
+numba==0.59.1
+numpy>=1.26.0,<2.0.0
 requests>=2.31.0
 schedule>=1.2.0
