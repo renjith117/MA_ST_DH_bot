@@ -42,8 +42,16 @@ TELEGRAM_CHAT_ID      = os.environ["TELEGRAM_CHAT_ID"]
 #   ("NSE", "NIFTY 50"),   # Index (use NFO options carefully)
 #]
 
-x = pd.read_csv('NIFTY_50_V1.csv')
-WATCHLIST = list(zip(x["Exchange"], x["Stock"]))
+#x = pd.read_csv('NIFTY_50_V1.csv')
+#WATCHLIST = list(zip(x["Exchange"], x["Stock"]))
+
+url = "https://archives.nseindia.com/content/indices/ind_nifty500list.csv"
+df = pd.read_csv(url)
+df1 = pd.DataFrame()
+df1['Stock'] = df['Symbol']
+df1['Exchange'] = 'NSE'
+df1 = df1[['Exchange','Stock']]
+WATCHLIST = list(zip(df1["Exchange"], df1["Stock"]))
 
 
 # SuperTrend settings (Daily)
