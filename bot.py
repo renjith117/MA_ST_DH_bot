@@ -308,7 +308,7 @@ def scan_all():
             scan_symbol(exchange, symbol)
         except Exception as e:
             log.error(f"Unexpected error scanning {symbol}: {e}")
-        time.sleep(3)   # gentle rate-limit between symbols
+        time.sleep(1)   # gentle rate-limit between symbols
     log.info("Scan complete.")
 # ─────────────────────────────────────────────
 #  SCHEDULER
