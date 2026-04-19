@@ -11,6 +11,8 @@ import threading
 from flask import Flask
 from kiteconnect import KiteConnect
 
+IST = pytz.timezone("Asia/Kolkata")
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -124,8 +126,14 @@ def fetch_ohlc(token: int, interval: str, days_back: int) -> pd.DataFrame:
     Fetch historical OHLC data.
     interval: "day" | "60minute" | "15minute" etc.
     """
-    to_date   = datetime.now()
-    from_date = to_date - timedelta(days=days_back)
+    now     = datetime.now(IST)
+    from_dt = (now - timedelta(days=lookback_days)).replace(hour=9, minute=0, second=0, microsecond=0)
+    to_dt   = now
+
+    # strip timezone — Kite expects naive datetimes
+    from_date = from_dt.replace(tzinfo=None) 
+    to_date = to_dt.replace(tzinfo=None)
+
     try:
         records = kite.historical_data(
             instrument_token=token,
