@@ -213,11 +213,7 @@ def build_alert(symbol: str, signal: int,
     emoji = "🟢" if signal == 1 else "🔴"
     stype = "BUY 🚀" if signal == 1 else "SELL 📉"
     st_str = "🟢 Bullish" if st_dir == 1 else "🔴 Bearish"
-    print(signal)
-    print(now)
-    print(emoji)
-    print(stype)
-    print(st_str)
+
     return (
         f"{emoji} <b>ALERT — {symbol}</b>\n"
         f"━━━━━━━━━━━━━━━━━━━━━\n"
@@ -225,7 +221,7 @@ def build_alert(symbol: str, signal: int,
         f"🕐 Time        : {now}\n"
         f"\n"
         f"<b>Daily  SuperTrend</b> : {st_str}\n"
-        f"<b>Hourly EMA Cross</b>  : EMA{EMA_FAST} {'>' if signal==1 else '<'} EMA{EMA_SLOW}\n"
+        f"<b>Hourly EMA Cross</b>  : EMA{EMA_FAST} {'>' if signal==1 else '&lt;'} EMA{EMA_SLOW}\n"
         f"\n"
         f"💰 Close (1H)  : ₹{close_h:.2f}\n"
         f"📊 EMA{EMA_FAST}         : ₹{ema5:.2f}\n"
