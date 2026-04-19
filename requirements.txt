@@ -4,3 +4,4 @@ pandas_ta
 requests
 schedule
 flask
+pytz

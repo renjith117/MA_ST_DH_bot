@@ -3,6 +3,7 @@ import time
 import logging
 import schedule
 import requests
+import pytz
 import pandas as pd
 
 import pandas_ta as ta
