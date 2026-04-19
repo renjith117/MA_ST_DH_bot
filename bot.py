@@ -213,7 +213,11 @@ def build_alert(symbol: str, signal: int,
     emoji = "🟢" if signal == 1 else "🔴"
     stype = "BUY 🚀" if signal == 1 else "SELL 📉"
     st_str = "🟢 Bullish" if st_dir == 1 else "🔴 Bearish"
-
+    print(signal)
+    print(now)
+    print(emoji)
+    print(stype)
+    print(st_str)
     return (
         f"{emoji} <b>ALERT — {symbol}</b>\n"
         f"━━━━━━━━━━━━━━━━━━━━━\n"
