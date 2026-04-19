@@ -128,7 +128,7 @@ def fetch_ohlc(token: int, interval: str, days_back: int) -> pd.DataFrame:
     interval: "day" | "60minute" | "15minute" etc.
     """
     now     = datetime.now(IST)
-    from_dt = (now - timedelta(days=lookback_days)).replace(hour=9, minute=0, second=0, microsecond=0)
+    from_dt = (now - timedelta(days=days_back)).replace(hour=9, minute=0, second=0, microsecond=0)
     to_dt   = now
 
     # strip timezone — Kite expects naive datetimes
