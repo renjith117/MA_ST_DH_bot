@@ -73,6 +73,8 @@ SCAN_INTERVAL_MINUTES = 5
 ALERT_ON_SELL = True
 
 
+
+
 # ─────────────────────────────────────────────
 #  LOGGING
 # ─────────────────────────────────────────────
@@ -93,6 +95,7 @@ log = logging.getLogger(__name__)
 kite = KiteConnect(api_key=API_KEY)
 kite.set_access_token(ACCESS_TOKEN)
 
+instruments_df = pd.DataFrame(kite.instruments("NSE"))
 
 # ─────────────────────────────────────────────
 #  TELEGRAM HELPER
@@ -121,10 +124,9 @@ def send_telegram(message: str) -> bool:
 def get_instrument_token(exchange: str, symbol: str) -> int | None:
     """Resolve symbol → instrument token (cached after first call)."""
     try:
-        instruments = kite.instruments(exchange)
-        for inst in instruments:
-            if inst["tradingsymbol"] == symbol:
-                return inst["instrument_token"]
+        inst = instruments_df[(instruments_df['tradingsymbol'] == symbol) ]
+
+        return inst["instrument_token"]
     except Exception as e:
         log.error(f"Instrument lookup failed for {symbol}: {e}")
     return None
