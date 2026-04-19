@@ -126,7 +126,7 @@ def get_instrument_token(exchange: str, symbol: str) -> int | None:
     try:
         inst = instruments_df[(instruments_df['tradingsymbol'] == symbol) ]
 
-        return inst["instrument_token"]
+        return inst.iloc[0]["instrument_token"]
     except Exception as e:
         log.error(f"Instrument lookup failed for {symbol}: {e}")
     return None
