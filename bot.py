@@ -283,12 +283,12 @@ def scan_symbol(exchange: str, symbol: str):
         return
 
     # Avoid re-sending the same signal
-    prev = _last_signal.get(symbol, 0)
-    if cross == prev:
-        log.info(f"  {symbol}: Signal ({cross}) already sent, skipping duplicate.")
-        return
+    # prev = _last_signal.get(symbol, 0)
+    # if cross == prev:
+    #     log.info(f"  {symbol}: Signal ({cross}) already sent, skipping duplicate.")
+    #     return
 
-    _last_signal[symbol] = cross
+    # _last_signal[symbol] = cross
 
     msg = build_alert(
         symbol      = symbol,
