@@ -52,8 +52,8 @@ EMA_FAST = 5
 EMA_SLOW = 10
 
 # How many candles to fetch (keep enough for indicator warmup)
-DAILY_CANDLES  = 300
-HOURLY_CANDLES = 300
+DAILY_CANDLES  = 100
+HOURLY_CANDLES = 100
 
 # Scan interval (minutes) – runs every N minutes during market hours
 SCAN_INTERVAL_MINUTES = 5
