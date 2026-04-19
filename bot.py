@@ -31,16 +31,16 @@ TELEGRAM_CHAT_ID      = os.environ["TELEGRAM_CHAT_ID"]
 
 
 #Watchlist: list of (exchange, tradingsymbol) tuples
-WATCHLIST = [
-    ("NSE", "RELIANCE"),
-    ("NSE", "INFY"),
-    ("NSE", "TCS"),
-   ("NSE", "ASKAUTOLTD"),
-   ("NSE", "NIFTY 50"),   # Index (use NFO options carefully)
-]
+#WATCHLIST = [
+#    ("NSE", "RELIANCE"),
+#    ("NSE", "INFY"),
+#   ("NSE", "TCS"),
+#   ("NSE", "ASKAUTOLTD"),
+#   ("NSE", "NIFTY 50"),   # Index (use NFO options carefully)
+#]
 
-#x = pd.read_csv('NIFTY_50_V1.csv')
-#WATCHLIST = list(zip(x["Exchange"], x["Stock"]))
+x = pd.read_csv('NIFTY_50_V1.csv')
+WATCHLIST = list(zip(x["Exchange"], x["Stock"]))
 
 
 # SuperTrend settings (Daily)
