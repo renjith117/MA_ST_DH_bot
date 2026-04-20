@@ -360,8 +360,9 @@ if __name__ == "__main__":
     )
 
     # Run once immediately, then on schedule
-    scheduled_scan()
     schedule.every(SCAN_INTERVAL_MINUTES).minutes.do(scheduled_scan)
+    scheduled_scan()
+    
 
     while True:
         schedule.run_pending()
