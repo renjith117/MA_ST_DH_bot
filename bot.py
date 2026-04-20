@@ -67,6 +67,7 @@ df3['Exchange'] = 'NSE'
 df3 = df3[['Exchange','Stock']]
 
 x = pd.concat([df1,df2,df3,df4])
+x = x.drop_duplicates()
 
 WATCHLIST = list(zip(x["Exchange"], x["Stock"]))
 
@@ -84,7 +85,7 @@ DAILY_CANDLES  = 100
 HOURLY_CANDLES = 100
 
 # Scan interval (minutes) – runs every N minutes during market hours
-SCAN_INTERVAL_MINUTES = 5
+SCAN_INTERVAL_MINUTES = 30
 
 # Send alert on SELL crossover too? Set False for buy-only alerts
 ALERT_ON_SELL = True
