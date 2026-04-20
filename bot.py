@@ -42,7 +42,7 @@ TELEGRAM_CHAT_ID      = os.environ["TELEGRAM_CHAT_ID"]
 #   ("NSE", "NIFTY 50"),   # Index (use NFO options carefully)
 #]
 
-#x = pd.read_csv('NIFTY_50_V1.csv')
+df4 = pd.read_csv('NIFTY_50_V1.csv')
 #WATCHLIST = list(zip(x["Exchange"], x["Stock"]))
 
 url = "https://archives.nseindia.com/content/indices/ind_nifty500list.csv"
@@ -51,7 +51,24 @@ df1 = pd.DataFrame()
 df1['Stock'] = df['Symbol']
 df1['Exchange'] = 'NSE'
 df1 = df1[['Exchange','Stock']]
-WATCHLIST = list(zip(df1["Exchange"], df1["Stock"]))
+
+url = "https://archives.nseindia.com/content/indices/ind_niftysmallcap250list.csv"
+df = pd.read_csv(url)
+df2 = pd.DataFrame()
+df2['Stock'] = df['Symbol']
+df2['Exchange'] = 'NSE'
+df2 = df2[['Exchange','Stock']]
+
+url = "https://archives.nseindia.com/content/indices/ind_niftymicrocap250_list.csv"
+df = pd.read_csv(url)
+df3 = pd.DataFrame()
+df3['Stock'] = df['Symbol']
+df3['Exchange'] = 'NSE'
+df3 = df3[['Exchange','Stock']]
+
+x = pd.concat([df1,df2,df3,df4])
+
+WATCHLIST = list(zip(x["Exchange"], x["Stock"]))
 
 
 # SuperTrend settings (Daily)
